@@ -1,3 +1,5 @@
+import re
+
 class Log:
     def __init__(self, host, user, epoch, req, status, size, referer):
         self.host = host
@@ -23,3 +25,6 @@ class Log:
     @property
     def uri(self):
         return "http://{}{}".format(self.host, self.path)
+
+    def is_error(self):
+        return bool(re.match(r'^[45]\d\d', self.status))
