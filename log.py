@@ -27,4 +27,4 @@ class Log:
         return "http://{}{}".format(self.host, self.path)
 
     def is_error(self):
-        return bool(re.match(r'^[45]\d\d', self.status))
+        return bool(re.match(r'^5\d\d', self.status))
