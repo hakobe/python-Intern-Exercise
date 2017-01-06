@@ -10,6 +10,16 @@ class Log:
 
         (self.method, self.path, self.protocol, *_) = self.req.split()
 
+    def __eq__(self, other):
+        return \
+            self.host == other.host and \
+            self.user == other.user and \
+            self.epoch == other.epoch and \
+            self.req == other.req and \
+            self.status == other.status and \
+            self.size == other.size and \
+            self.referer == other.referer
+
     @property
     def uri(self):
         return "http://{}{}".format(self.host, self.path)
