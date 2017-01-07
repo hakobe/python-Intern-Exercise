@@ -79,5 +79,5 @@ class LogTest(unittest.TestCase):
         )
 
         self.assertFalse( success_log.is_error() )
-        self.assertTrue( error_log_404.is_error() )
+        self.assertFalse( error_log_404.is_error() )
         self.assertTrue( error_log_503.is_error() )
